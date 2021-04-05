@@ -1,7 +1,11 @@
-package com.duyts.weathermvvm.data.response
+package com.duyts.weathermvvm.data.db.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+const val CURRENT_WEATHER_ID = 0;
+@Entity(tableName = "current_weather")
 data class CurrentWeatherEntry(
 
 	@field:SerializedName("weather_descriptions")
@@ -51,4 +55,7 @@ data class CurrentWeatherEntry(
 
 	@field:SerializedName("weather_code")
 	val weatherCode: Int
-)
+) {
+	@PrimaryKey(autoGenerate = false)
+	var id:Int = CURRENT_WEATHER_ID
+}
